@@ -44,6 +44,25 @@ Tested on GPT-4o over 40 messages on a single coding task:
 
 ---
 
+## See It in Action
+
+<p align="center">
+  <img src="images/screenshot-chatgpt-slipping.png" alt="FlowState on ChatGPT — Slipping 5.7/10" width="700"/>
+  <br><em>ChatGPT losing context mid-conversation — FlowState catches it in real time</em>
+</p>
+
+<p align="center">
+  <img src="images/screenshot-smart-reset.png" alt="FlowState Smart Reset — context copied to clipboard" width="700"/>
+  <br><em>Smart Reset summarizes your conversation and opens a fresh chat — no progress lost</em>
+</p>
+
+<p align="center">
+  <img src="images/screenshot-gemini-sharp.png" alt="FlowState on Gemini — Sharp 9.1/10" width="700"/>
+  <br><em>Gemini early in a conversation — Sharp 9.1/10 across all four signals</em>
+</p>
+
+---
+
 ## Install
 
 ### Chrome / Edge / Brave (Recommended)
