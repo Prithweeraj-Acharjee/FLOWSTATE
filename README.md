@@ -1,11 +1,13 @@
-# FlowState
-
 <p align="center">
-  <img src="flowstate_graph.png" alt="FlowState — Quality degradation over 40 messages" width="700"/>
+  <img src="images/logo.svg" alt="FlowState" width="480"/>
 </p>
 
 <p align="center">
   <strong>Your AI isn't getting dumber. It's forgetting.</strong>
+</p>
+
+<p align="center">
+  <img src="flowstate_graph.png" alt="FlowState — Quality degradation over 40 messages" width="700"/>
 </p>
 
 <p align="center">

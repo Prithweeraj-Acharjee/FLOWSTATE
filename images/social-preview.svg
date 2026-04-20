@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0d0d0d"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#00e676"/>
+      <stop offset="50%"  stop-color="#ff8800"/>
+      <stop offset="100%" stop-color="#ff4444"/>
+    </linearGradient>
+    <linearGradient id="areaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00e676" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#ff4444" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="url(#bg)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="160" x2="1280" y2="160" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="0" y1="320" x2="1280" y2="320" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="0" y1="480" x2="1280" y2="480" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="320"  y1="0" x2="320"  y2="640" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="640"  y1="0" x2="640"  y2="640" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+  <line x1="960"  y1="0" x2="960"  y2="640" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+
+  <!-- Quality graph — area fill -->
+  <polygon
+    points="120,480 220,450 340,420 460,400 560,395 660,385 760,360 860,310 960,240 1060,170 1160,100 1160,540 120,540"
+    fill="url(#areaGrad)"/>
+
+  <!-- Quality graph — line -->
+  <polyline
+    points="120,480 220,450 340,420 460,400 560,395 660,385 760,360 860,310 960,240 1060,170 1160,100"
+    fill="none"
+    stroke="url(#lineGrad)"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- Collapse marker -->
+  <line x1="760" y1="80" x2="760" y2="560" stroke="#ff8800" stroke-opacity="0.25" stroke-width="1" stroke-dasharray="6,4"/>
+  <rect x="680" y="82" width="162" height="28" rx="6" fill="#1a1000"/>
+  <text x="761" y="101" font-family="Arial,sans-serif" font-size="14" font-weight="700"
+        fill="#ff8800" text-anchor="middle" letter-spacing="0.3">⚠ Collapse starts</text>
+
+  <!-- Dots -->
+  <circle cx="120"  cy="480" r="6" fill="#00e676"/>
+  <circle cx="460"  cy="400" r="6" fill="#00e676"/>
+  <circle cx="760"  cy="360" r="6" fill="#ff8800"/>
+  <circle cx="1060" cy="170" r="6" fill="#ff4444"/>
+  <circle cx="1160" cy="100" r="6" fill="#ff4444"/>
+
+  <!-- Score labels -->
+  <text x="120"  y="520" font-family="Arial,sans-serif" font-size="13" fill="#00e676" text-anchor="middle" opacity="0.8">9.0</text>
+  <text x="1160" y="140" font-family="Arial,sans-serif" font-size="13" fill="#ff4444" text-anchor="middle" opacity="0.8">3.0</text>
+
+  <!-- Message axis labels -->
+  <text x="120"  y="570" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">Msg 1</text>
+  <text x="460"  y="570" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">Msg 10</text>
+  <text x="760"  y="570" font-family="Arial,sans-serif" font-size="12" fill="#555" text-anchor="middle">Msg 18</text>
+  <text x="1060" y="570" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">Msg 30</text>
+  <text x="1160" y="570" font-family="Arial,sans-serif" font-size="12" fill="#333" text-anchor="middle">Msg 40</text>
+
+  <!-- Icon circle -->
+  <circle cx="150" cy="148" r="52" fill="#161616" stroke="#222" stroke-width="1.5"/>
+  <polygon points="143,112 159,142 151,142 158,182 138,152 147,152" fill="#00e676"/>
+
+  <!-- Main headline -->
+  <text x="222" y="130" font-family="'Helvetica Neue',Arial,sans-serif"
+        font-size="52" font-weight="800" fill="#ffffff" letter-spacing="-1">Flow</text>
+  <text x="340" y="130" font-family="'Helvetica Neue',Arial,sans-serif"
+        font-size="52" font-weight="800" fill="#00e676" letter-spacing="-1">State</text>
+
+  <!-- Subheadline -->
+  <text x="222" y="168" font-family="'Helvetica Neue',Arial,sans-serif"
+        font-size="20" fill="#555" letter-spacing="0.3">
+    Real-time AI quality monitor · ChatGPT · Gemini · Claude
+  </text>
+
+  <!-- Stat callouts -->
+  <rect x="222" y="196" width="180" height="64" rx="10" fill="#161616" stroke="#1f1f1f" stroke-width="1"/>
+  <text x="312" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#ff4444" text-anchor="middle">−67%</text>
+  <text x="312" y="248" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle" letter-spacing="0.5">QUALITY DROP</text>
+
+  <rect x="418" y="196" width="180" height="64" rx="10" fill="#161616" stroke="#1f1f1f" stroke-width="1"/>
+  <text x="508" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#ff8800" text-anchor="middle">Msg 18</text>
+  <text x="508" y="248" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle" letter-spacing="0.5">COLLAPSE POINT</text>
+
+  <rect x="614" y="196" width="180" height="64" rx="10" fill="#161616" stroke="#1f1f1f" stroke-width="1"/>
+  <text x="704" y="224" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#00e676" text-anchor="middle">Free</text>
+  <text x="704" y="248" font-family="Arial,sans-serif" font-size="12" fill="#444" text-anchor="middle" letter-spacing="0.5">OPEN SOURCE</text>
+</svg>
