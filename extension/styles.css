@@ -1,0 +1,324 @@
+/* ── FlowState Floating Meter ────────────────────────────────────────────── */
+
+#fs-meter {
+  all: initial;
+  display: block;
+  position: fixed !important;
+  top: 80px !important;
+  right: 20px !important;
+  z-index: 2147483647 !important;
+  width: 224px;
+  background: #111111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+#fs-meter * { box-sizing: border-box; }
+
+#fs-meter.fs-pulse {
+  box-shadow: 0 0 0 2px #ff8800, 0 8px 32px rgba(0,0,0,0.6);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────── */
+
+#fs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 12px 8px;
+  border-bottom: 1px solid #1f1f1f;
+  cursor: grab;
+}
+
+#fs-header:active { cursor: grabbing; }
+
+#fs-logo {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+
+#fs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Score shown in header when meter is minimized */
+#fs-mini-score {
+  display: none;
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: right;
+}
+
+#fs-model-badge {
+  font-size: 9px;
+  font-weight: 600;
+  color: #555;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 2px 5px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+#fs-toggle {
+  color: #555;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  padding: 0 1px;
+  flex-shrink: 0;
+}
+
+#fs-toggle:hover { color: #fff; }
+
+/* ── Body ───────────────────────────────────────────────────────────────── */
+
+#fs-body {
+  padding: 11px 13px 13px;
+}
+
+#fs-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+#fs-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #888;
+  transition: color 0.4s;
+}
+
+#fs-score {
+  font-size: 13px;
+  font-weight: 700;
+  color: #888;
+  transition: color 0.4s;
+}
+
+#fs-bar-wrap {
+  background: #1e1e1e;
+  border-radius: 6px;
+  height: 5px;
+  overflow: hidden;
+  margin-bottom: 11px;
+}
+
+#fs-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  background: #00e676;
+  transition: width 0.6s ease, background 0.4s ease;
+}
+
+/* ── Metric grid ────────────────────────────────────────────────────────── */
+
+#fs-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 8px;
+  margin-bottom: 9px;
+}
+
+.fs-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.fs-metric-label {
+  font-size: 9px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.fs-metric-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: #bbb;
+}
+
+/* ── Footer rows ────────────────────────────────────────────────────────── */
+
+#fs-msg-count {
+  font-size: 10px;
+  color: #3a3a3a;
+  margin-bottom: 6px;
+}
+
+#fs-msg-count span {
+  color: #666;
+  font-weight: 600;
+}
+
+#fs-trajectory {
+  display: none;
+  font-size: 10px;
+  color: #ff8800;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+#fs-reset-btn {
+  display: none;
+  width: 100%;
+  padding: 7px 0;
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+#fs-reset-btn:hover { background: #ff6666; }
+
+#fs-reset-hint {
+  display: none;
+  font-size: 9px;
+  color: #444;
+  text-align: center;
+  margin-top: 5px;
+}
+
+/* ── Warning Toast ──────────────────────────────────────────────────────── */
+
+#fs-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  background: #1a1a1a;
+  border: 1px solid #ff4444;
+  border-radius: 10px;
+  padding: 14px 20px;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(255,68,68,0.3);
+  animation: fs-slide-up 0.3s ease;
+}
+
+@keyframes fs-slide-up {
+  from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Smart Reset Overlay ────────────────────────────────────────────────── */
+
+#fs-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fs-fade-in 0.2s ease;
+}
+
+@keyframes fs-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+#fs-overlay-box {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+#fs-overlay-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 14px;
+  color: #00e676;
+}
+
+#fs-overlay-sub {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+#fs-overlay-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#fs-open-new {
+  padding: 10px 24px;
+  background: #00e676;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#fs-open-new:hover { background: #00ff88; }
+
+#fs-overlay-close {
+  padding: 10px 24px;
+  background: transparent;
+  color: #666;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#fs-overlay-close:hover { color: #fff; border-color: #555; }
+
+#fs-overlay-preview {
+  background: #0d0d0d;
+  border: 1px solid #1f1f1f;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 11px;
+  color: #555;
+  text-align: left;
+  line-height: 1.5;
+  max-height: 100px;
+  overflow: hidden;
+}

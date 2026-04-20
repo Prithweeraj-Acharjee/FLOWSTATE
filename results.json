@@ -1,0 +1,362 @@
+[
+  {
+    "message": 1,
+    "relevance": 8.63,
+    "specificity": 8.3,
+    "length": 9.21,
+    "repetition": 8.66,
+    "overall": 8.85,
+    "word_count": 484
+  },
+  {
+    "message": 2,
+    "relevance": 8.07,
+    "specificity": 7.98,
+    "length": 8.69,
+    "repetition": 7.57,
+    "overall": 8.54,
+    "word_count": 406
+  },
+  {
+    "message": 3,
+    "relevance": 8.9,
+    "specificity": 9.03,
+    "length": 9.61,
+    "repetition": 8.19,
+    "overall": 9.18,
+    "word_count": 464
+  },
+  {
+    "message": 4,
+    "relevance": 8.76,
+    "specificity": 9.35,
+    "length": 9.1,
+    "repetition": 8.21,
+    "overall": 9.1,
+    "word_count": 382
+  },
+  {
+    "message": 5,
+    "relevance": 9.72,
+    "specificity": 9.41,
+    "length": 9.59,
+    "repetition": 9.58,
+    "overall": 9.41,
+    "word_count": 406
+  },
+  {
+    "message": 6,
+    "relevance": 8.78,
+    "specificity": 8.81,
+    "length": 8.88,
+    "repetition": 8.51,
+    "overall": 8.66,
+    "word_count": 363
+  },
+  {
+    "message": 7,
+    "relevance": 7.53,
+    "specificity": 7.41,
+    "length": 7.74,
+    "repetition": 7.28,
+    "overall": 7.95,
+    "word_count": 423
+  },
+  {
+    "message": 8,
+    "relevance": 7.87,
+    "specificity": 7.65,
+    "length": 8.7,
+    "repetition": 7.94,
+    "overall": 8.16,
+    "word_count": 414
+  },
+  {
+    "message": 9,
+    "relevance": 7.8,
+    "specificity": 7.76,
+    "length": 8.73,
+    "repetition": 7.91,
+    "overall": 8.14,
+    "word_count": 402
+  },
+  {
+    "message": 10,
+    "relevance": 9.11,
+    "specificity": 8.28,
+    "length": 8.56,
+    "repetition": 8.21,
+    "overall": 8.83,
+    "word_count": 362
+  },
+  {
+    "message": 11,
+    "relevance": 7.96,
+    "specificity": 7.13,
+    "length": 7.87,
+    "repetition": 7.05,
+    "overall": 7.58,
+    "word_count": 434
+  },
+  {
+    "message": 12,
+    "relevance": 7.3,
+    "specificity": 7.37,
+    "length": 7.49,
+    "repetition": 7.25,
+    "overall": 7.55,
+    "word_count": 427
+  },
+  {
+    "message": 13,
+    "relevance": 7.93,
+    "specificity": 7.19,
+    "length": 7.21,
+    "repetition": 6.49,
+    "overall": 7.43,
+    "word_count": 322
+  },
+  {
+    "message": 14,
+    "relevance": 8.04,
+    "specificity": 7.39,
+    "length": 8.16,
+    "repetition": 8.32,
+    "overall": 8.12,
+    "word_count": 369
+  },
+  {
+    "message": 15,
+    "relevance": 8.18,
+    "specificity": 8.66,
+    "length": 8.98,
+    "repetition": 8.31,
+    "overall": 8.67,
+    "word_count": 329
+  },
+  {
+    "message": 16,
+    "relevance": 6.48,
+    "specificity": 6.25,
+    "length": 7.11,
+    "repetition": 6.6,
+    "overall": 6.55,
+    "word_count": 322
+  },
+  {
+    "message": 17,
+    "relevance": 6.72,
+    "specificity": 6.47,
+    "length": 6.28,
+    "repetition": 6.08,
+    "overall": 6.31,
+    "word_count": 362
+  },
+  {
+    "message": 18,
+    "relevance": 6.0,
+    "specificity": 6.02,
+    "length": 6.14,
+    "repetition": 4.96,
+    "overall": 5.96,
+    "word_count": 318
+  },
+  {
+    "message": 19,
+    "relevance": 6.18,
+    "specificity": 5.91,
+    "length": 5.78,
+    "repetition": 4.87,
+    "overall": 5.8,
+    "word_count": 388
+  },
+  {
+    "message": 20,
+    "relevance": 7.14,
+    "specificity": 6.43,
+    "length": 7.53,
+    "repetition": 7.07,
+    "overall": 7.15,
+    "word_count": 277
+  },
+  {
+    "message": 21,
+    "relevance": 4.99,
+    "specificity": 5.38,
+    "length": 5.3,
+    "repetition": 4.47,
+    "overall": 5.22,
+    "word_count": 329
+  },
+  {
+    "message": 22,
+    "relevance": 5.46,
+    "specificity": 5.94,
+    "length": 5.93,
+    "repetition": 5.18,
+    "overall": 5.65,
+    "word_count": 320
+  },
+  {
+    "message": 23,
+    "relevance": 3.98,
+    "specificity": 3.99,
+    "length": 4.05,
+    "repetition": 3.4,
+    "overall": 4.14,
+    "word_count": 249
+  },
+  {
+    "message": 24,
+    "relevance": 5.83,
+    "specificity": 5.57,
+    "length": 5.18,
+    "repetition": 4.71,
+    "overall": 5.42,
+    "word_count": 331
+  },
+  {
+    "message": 25,
+    "relevance": 4.75,
+    "specificity": 4.14,
+    "length": 4.44,
+    "repetition": 4.25,
+    "overall": 4.31,
+    "word_count": 346
+  },
+  {
+    "message": 26,
+    "relevance": 3.16,
+    "specificity": 2.9,
+    "length": 3.35,
+    "repetition": 3.1,
+    "overall": 3.23,
+    "word_count": 320
+  },
+  {
+    "message": 27,
+    "relevance": 5.12,
+    "specificity": 4.79,
+    "length": 5.7,
+    "repetition": 4.52,
+    "overall": 5.22,
+    "word_count": 240
+  },
+  {
+    "message": 28,
+    "relevance": 3.85,
+    "specificity": 3.54,
+    "length": 4.6,
+    "repetition": 3.6,
+    "overall": 4.07,
+    "word_count": 338
+  },
+  {
+    "message": 29,
+    "relevance": 4.61,
+    "specificity": 4.23,
+    "length": 4.68,
+    "repetition": 4.22,
+    "overall": 4.11,
+    "word_count": 331
+  },
+  {
+    "message": 30,
+    "relevance": 3.12,
+    "specificity": 3.05,
+    "length": 3.16,
+    "repetition": 2.86,
+    "overall": 3.41,
+    "word_count": 347
+  },
+  {
+    "message": 31,
+    "relevance": 3.16,
+    "specificity": 2.87,
+    "length": 3.76,
+    "repetition": 3.39,
+    "overall": 3.2,
+    "word_count": 273
+  },
+  {
+    "message": 32,
+    "relevance": 3.53,
+    "specificity": 4.0,
+    "length": 3.95,
+    "repetition": 3.38,
+    "overall": 3.73,
+    "word_count": 298
+  },
+  {
+    "message": 33,
+    "relevance": 2.66,
+    "specificity": 2.8,
+    "length": 2.5,
+    "repetition": 2.81,
+    "overall": 2.66,
+    "word_count": 182
+  },
+  {
+    "message": 34,
+    "relevance": 3.11,
+    "specificity": 2.39,
+    "length": 2.74,
+    "repetition": 3.0,
+    "overall": 2.93,
+    "word_count": 203
+  },
+  {
+    "message": 35,
+    "relevance": 3.68,
+    "specificity": 3.6,
+    "length": 3.93,
+    "repetition": 3.88,
+    "overall": 3.76,
+    "word_count": 189
+  },
+  {
+    "message": 36,
+    "relevance": 2.82,
+    "specificity": 2.86,
+    "length": 2.89,
+    "repetition": 2.3,
+    "overall": 2.92,
+    "word_count": 277
+  },
+  {
+    "message": 37,
+    "relevance": 2.58,
+    "specificity": 2.38,
+    "length": 1.85,
+    "repetition": 1.34,
+    "overall": 2.08,
+    "word_count": 187
+  },
+  {
+    "message": 38,
+    "relevance": 4.01,
+    "specificity": 3.24,
+    "length": 3.47,
+    "repetition": 3.63,
+    "overall": 3.63,
+    "word_count": 257
+  },
+  {
+    "message": 39,
+    "relevance": 3.36,
+    "specificity": 2.42,
+    "length": 3.65,
+    "repetition": 2.57,
+    "overall": 3.21,
+    "word_count": 245
+  },
+  {
+    "message": 40,
+    "relevance": 2.81,
+    "specificity": 2.51,
+    "length": 3.39,
+    "repetition": 2.52,
+    "overall": 3.19,
+    "word_count": 228
+  }
+]

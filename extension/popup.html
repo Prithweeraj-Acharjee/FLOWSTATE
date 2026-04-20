@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowState</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 280px;
+      background: #0d0d0d;
+      color: #ffffff;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 13px;
+    }
+
+    /* Header */
+    .header {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span { color: #00e676; }
+
+    .version {
+      font-size: 10px;
+      color: #444;
+    }
+
+    /* Score card */
+    .score-card {
+      padding: 16px 18px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .score-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .score-label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .score-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #00e676;
+      line-height: 1;
+    }
+
+    .score-value.warn  { color: #ff8800; }
+    .score-value.bad   { color: #ff4444; }
+
+    .status-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: #0d2818;
+      color: #00e676;
+    }
+
+    .status-badge.warn { background: #2a1800; color: #ff8800; }
+    .status-badge.bad  { background: #2a0000; color: #ff4444; }
+
+    /* Progress bar */
+    .bar-wrap {
+      background: #1a1a1a;
+      border-radius: 6px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: #00e676;
+      transition: width 0.6s ease, background 0.4s;
+    }
+
+    /* Metrics grid */
+    .metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .metric-box {
+      background: #141414;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    .metric-name {
+      font-size: 9px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 3px;
+    }
+
+    .metric-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ccc;
+    }
+
+    /* Chart */
+    .chart-section {
+      padding: 14px 18px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .chart-title {
+      font-size: 10px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    canvas {
+      width: 100%;
+      border-radius: 6px;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      padding: 12px 18px;
+      gap: 0;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .stat {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat:not(:last-child) {
+      border-right: 1px solid #1a1a1a;
+    }
+
+    .stat-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* Reset button */
+    .reset-section {
+      padding: 14px 18px;
+    }
+
+    .reset-btn {
+      width: 100%;
+      padding: 10px;
+      background: #1a1a1a;
+      color: #ff4444;
+      border: 1px solid #2a0000;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .reset-btn:hover { background: #2a0000; }
+
+    .reset-btn:disabled {
+      color: #444;
+      border-color: #1a1a1a;
+      cursor: not-allowed;
+    }
+
+    .reset-hint {
+      font-size: 10px;
+      color: #444;
+      text-align: center;
+      margin-top: 6px;
+    }
+
+    /* Idle state */
+    .idle-state {
+      padding: 30px 18px;
+      text-align: center;
+      color: #444;
+    }
+
+    .idle-state .idle-icon { font-size: 28px; margin-bottom: 10px; }
+    .idle-state .idle-text { font-size: 12px; line-height: 1.5; color: #555; }
+
+    .idle-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .idle-link {
+      display: block;
+      padding: 7px 12px;
+      background: #141414;
+      border: 1px solid #1f1f1f;
+      border-radius: 7px;
+      color: #888;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .idle-link:hover { border-color: #00e676; color: #00e676; }
+
+    /* Footer */
+    .footer {
+      padding: 8px 18px 12px;
+      border-top: 1px solid #1a1a1a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer a {
+      font-size: 9px;
+      color: #333;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    .footer a:hover { color: #666; }
+
+    /* Sensitivity slider */
+    .sensitivity-section {
+      padding: 10px 18px 6px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .sensitivity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .sensitivity-label {
+      font-size: 9px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sensitivity-val {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888;
+    }
+
+    .sensitivity-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 4px;
+      background: #1a1a1a;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .sensitivity-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #00e676;
+      cursor: pointer;
+      border: 2px solid #0d0d0d;
+    }
+
+    .sensitivity-hint {
+      display: flex;
+      justify-content: space-between;
+      font-size: 8px;
+      color: #333;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="logo">Flow<span>State</span></div>
+    <div class="version">v2.1</div>
+  </div>
+
+  <!-- Idle: not on a supported AI site -->
+  <div class="idle-state" id="idle-state">
+    <div class="idle-icon">⚡</div>
+    <div class="idle-text">Open a supported AI chat to start<br>monitoring quality in real time.</div>
+    <div class="idle-links">
+      <a class="idle-link" href="https://chatgpt.com" target="_blank">Open ChatGPT</a>
+      <a class="idle-link" href="https://gemini.google.com" target="_blank">Open Gemini</a>
+      <a class="idle-link" href="https://claude.ai" target="_blank">Open Claude</a>
+    </div>
+  </div>
+
+  <!-- Active: on ChatGPT or Gemini with data -->
+  <div id="active-state" style="display:none">
+
+    <div class="score-card">
+      <div class="score-row">
+        <div>
+          <div class="score-label">Quality Score</div>
+          <div class="score-value" id="pop-score">—</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span id="pop-model" style="font-size:9px;font-weight:600;color:#555;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:4px;padding:2px 5px;text-transform:uppercase;letter-spacing:0.3px"></span>
+          <div class="status-badge" id="pop-badge">—</div>
+        </div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-fill" id="pop-bar" style="width:0%"></div>
+      </div>
+      <div class="metrics">
+        <div class="metric-box">
+          <div class="metric-name">Relevance</div>
+          <div class="metric-val" id="pop-rel">—</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Specificity</div>
+          <div class="metric-val" id="pop-spec">—</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Depth</div>
+          <div class="metric-val" id="pop-len">—</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-name">Repetition</div>
+          <div class="metric-val" id="pop-rep">—</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-section">
+      <div class="chart-title">Quality Over Conversation</div>
+      <canvas id="pop-chart" height="70"></canvas>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-val" id="pop-msgs">0</div>
+        <div class="stat-label">Messages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val" id="pop-peak">—</div>
+        <div class="stat-label">Peak</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val" id="pop-drop">—</div>
+        <div class="stat-label">Drop</div>
+      </div>
+    </div>
+
+    <div class="sensitivity-section">
+      <div class="sensitivity-header">
+        <span class="sensitivity-label">Sensitivity</span>
+        <span class="sensitivity-val" id="pop-sensitivity-val">1.0×</span>
+      </div>
+      <input type="range" id="pop-sensitivity" class="sensitivity-slider"
+             min="30" max="200" value="100" step="10">
+      <div class="sensitivity-hint">
+        <span>Lenient</span>
+        <span>Strict</span>
+      </div>
+    </div>
+
+    <div class="reset-section">
+      <button class="reset-btn" id="pop-reset-btn" disabled>
+        Smart Reset
+      </button>
+      <div class="reset-hint">Summarize context and start fresh</div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <a href="https://github.com/Prithweeraj-Acharjee/FlowState" target="_blank">GitHub</a>
+    <a href="https://github.com/Prithweeraj-Acharjee/FlowState/issues" target="_blank">Report Issue</a>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

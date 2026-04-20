@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    name: Build and Release Extension
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run tests
+        run: node extension/tests/quality.test.js
+
+      - name: Get version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Build extension zip
+        run: |
+          cd extension
+          zip -r ../FlowState-extension.zip . \
+            --exclude "tests/*" \
+            --exclude "*.test.js" \
+            --exclude ".DS_Store" \
+            --exclude "__MACOSX/*"
+          echo "Built FlowState-extension.zip"
+          ls -lh ../FlowState-extension.zip
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: FlowState ${{ steps.version.outputs.VERSION }}
+          body: |
+            ## Install
+
+            1. Download `FlowState-extension.zip` below
+            2. Unzip it
+            3. Open `chrome://extensions` → enable **Developer mode**
+            4. Click **Load unpacked** → select the unzipped folder
+            5. Open ChatGPT or Gemini — FlowState appears automatically
+
+            See [CHANGELOG.md](https://github.com/Prithweeraj-Acharjee/FlowState/blob/main/CHANGELOG.md) for what changed in this release.
+          files: FlowState-extension.zip
+          draft: false
+          prerelease: false
