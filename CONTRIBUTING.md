@@ -1,4 +1,4 @@
-# Contributing to FlowState
+# Contributing to FLOWSTATE
 
 Thanks for taking the time to contribute.
 
@@ -9,8 +9,8 @@ Thanks for taking the time to contribute.
 ## Getting Started
 
 ```bash
-git clone https://github.com/Prithweeraj-Acharjee/FlowState.git
-cd FlowState/extension
+git clone https://github.com/Prithweeraj-Acharjee/FLOWSTATE.git
+cd FLOWSTATE/extension
 node tests/quality.test.js   # make sure tests pass before you start
 ```
 
@@ -25,7 +25,7 @@ Load the extension in Chrome:
 
 ### Reporting a bug
 
-1. Check [existing issues](https://github.com/Prithweeraj-Acharjee/FlowState/issues) first
+1. Check [existing issues](https://github.com/Prithweeraj-Acharjee/FLOWSTATE/issues) first
 2. Open a new issue using the **Bug Report** template
 3. Include: browser + version, which AI site, what you expected, what happened
 

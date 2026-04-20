@@ -9,10 +9,10 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Prithweeraj-Acharjee/FlowState/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
-  <a href="https://github.com/Prithweeraj-Acharjee/FlowState/actions/workflows/ci.yml"><img src="https://github.com/Prithweeraj-Acharjee/FlowState/actions/workflows/ci.yml/badge.svg" alt="Tests"></a>
-  <a href="https://github.com/Prithweeraj-Acharjee/FlowState/releases"><img src="https://img.shields.io/badge/release-v2.1.0-blue" alt="Latest Release"></a>
-  <a href="https://github.com/Prithweeraj-Acharjee/FlowState/commits/main"><img src="https://img.shields.io/github/last-commit/Prithweeraj-Acharjee/FlowState?color=555" alt="Last Commit"></a>
+  <a href="https://github.com/Prithweeraj-Acharjee/FLOWSTATE/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
+  <a href="https://github.com/Prithweeraj-Acharjee/FLOWSTATE/actions/workflows/ci.yml"><img src="https://github.com/Prithweeraj-Acharjee/FLOWSTATE/actions/workflows/ci.yml/badge.svg" alt="Tests"></a>
+  <a href="https://github.com/Prithweeraj-Acharjee/FLOWSTATE/releases"><img src="https://img.shields.io/badge/release-v2.1.0-blue" alt="Latest Release"></a>
+  <a href="https://github.com/Prithweeraj-Acharjee/FLOWSTATE/commits/main"><img src="https://img.shields.io/github/last-commit/Prithweeraj-Acharjee/FLOWSTATE?color=555" alt="Last Commit"></a>
   <img src="https://img.shields.io/badge/manifest-v3-orange" alt="Manifest v3">
 </p>
 
